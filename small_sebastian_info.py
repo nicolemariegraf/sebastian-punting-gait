@@ -5,7 +5,7 @@
 ### as well as several reset configurations. Update values in this file whenever
 ### they are changed.
 ###
-### ---Last updated: 3/14/2021
+### ---Last updated: 4/14/2021
 
 import numpy as np
 
@@ -14,14 +14,14 @@ import math
 # --- Define physical robot dimensions
 # All lengths in millimeters
 robot_dims = dict()
-
-base_mm = 172.92						# Distance between hip axes of left and right sides
-base_attach_to_base_joint_mm = 41.24	# Distance from base edge to hip axis
-base_joint_to_knee_joint_mm = 89.38		# Length of leg segment "L0"
-knee_joint_to_ankle_joint_mm = 75.06	# Length of leg segment "L1"
-ankle_joint_to_dactyl_mm = 70.59		# Distance from ankle axis to beginning of dactyl
-dactyl_dx_mm = 49.29					# Horizontal distance from center of dactyl start to center of dactyl tip
-dactyl_dy_mm = 14.26					# Vertical distance from center of dactyl start to center of dactyl tip
+# tip to tip: 711.2mm
+base_mm = 	279.4					# Distance between hip axes of left and right sides
+base_attach_to_base_joint_mm = 63.5	# Distance from base edge to hip axis
+base_joint_to_knee_joint_mm = 63.5		# Length of leg segment "L0"
+knee_joint_to_ankle_joint_mm = 63.5	# Length of leg segment "L1"
+ankle_joint_to_dactyl_mm = 88.9		# Distance from ankle axis to beginning of dactyl
+dactyl_dx_mm = 49.29  # leaving this the same, may have to change					# Horizontal distance from center of dactyl start to center of dactyl tip
+dactyl_dy_mm = 14.26  # leaving this the same, may have to change				# Vertical distance from center of dactyl start to center of dactyl tip
 dactyl_center_offset_mm = 1				# Vertical distance between ankle servo shaft center and dactyl base center
 dactyl_angle = math.atan2(dactyl_dy_mm, dactyl_dx_mm)
 robot_dims['L0'] = base_joint_to_knee_joint_mm
@@ -37,6 +37,7 @@ robot_dims['offset_angle'] = (np.arccos((pow(a, 2) - pow(b, 2) - pow(robot_dims[
 # --- Define servo center positions
 # Defined as pulse width at which leg segments attached to servo are parallel
 # Format: [base, knee, ankle]
+# Get this section from zeroing the servos with the pololu
 center_pos_info= dict()
 center_pos_info['L1'] = [1940, 1925, 1015]
 center_pos_info['R1'] = [1055, 1910, 1050]
